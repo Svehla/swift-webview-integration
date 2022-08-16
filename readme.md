@@ -1,13 +1,21 @@
 
-# Swift - web view proprietal messaging
-
+# Swift <-> webView Request Response protocol
   
-This repo implements `TypeScript` + `Swift` library for transfering default event driven messaging between
+This repo implements `TypeScript` + `Swift` integration of the Request&Response communication between native app and web-view
 native swift app and web view to the Request & Response.
 
-API of the library is inspired by express.js & HTTP protocol.
+Library supports
+- Awaitable Request response communication
+- abstraction over one-way directional postMessages
+- runtime message validations
+- compile-time message validations
+- generating communication schema from the code implementation (similar to swagger)
+- protocol has currently two implementation in the
+  - Swift
+  - TypeScript
+- easy implementation for the `web <-> Iframe` communication
 
-Library support runtime + compile time validation by generated schema communication description.
+API of the `ReqResMessaging` is inspired by `express.js` & `HTTP` & `swagger`.
 
 ## Communication logs examples
 
