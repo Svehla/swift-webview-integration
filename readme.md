@@ -50,7 +50,7 @@ let resData = await swiftNativeUISDK.asyncUi({ h1: 'JS header' })
 
 ```typescript
 swiftNativeUISDK.__rrMessaging.onMessage("js/REVERSE_TEXT", (body) => ({
-	reversedText: body.inputText.split('').reverse().join('')
+  reversedText: body.inputText.split('').reverse().join('')
 }))
 
 ```
@@ -58,10 +58,10 @@ swiftNativeUISDK.__rrMessaging.onMessage("js/REVERSE_TEXT", (body) => ({
 ## Swift request to webView example
 ```swift
 let reversedGenderResponse = try await self.webViewMessaging.fetchMessage(
-	ReqBodyOf: Test1ReqBody.self,
-	ResOf: Test1ResData.self,
-	"js/REVERSE_TEXT",
-	Test1ReqBody(inputText: genderInput )
+  ReqBodyOf: Test1ReqBody.self,
+  ResOf: Test1ResData.self,
+  "js/REVERSE_TEXT",
+  Test1ReqBody(inputText: genderInput )
 )
 ```
 
@@ -71,9 +71,9 @@ let reversedGenderResponse = try await self.webViewMessaging.fetchMessage(
 
 ```swift
 self.webViewMessaging.onMessage(ReqOf: JsLogReqBody.self, ResOf: JsLogResData.self, "ios/JS_STD_OUTPUT") { body in
-	if (AppConfig.Logging.printJSConsoleLog) {
-		print("📲",  "JS_STDOUT", getCurrentFormattedTime(), "|", body.type.getIcon(), body.message)
-	}
-	return JsLogResData()
+  if (AppConfig.Logging.printJSConsoleLog) {
+    print("📲",  "JS_STDOUT", getCurrentFormattedTime(), "|", body.type.getIcon(), body.message)
+  }
+  return JsLogResData()
 }
 ```
