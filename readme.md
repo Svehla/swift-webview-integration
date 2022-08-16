@@ -2,10 +2,15 @@
 # Swift - web view proprietal messaging
 
   
-Integration of the swift app with the web view by the custom reqResMessaging protocol.
+This repo implements `TypeScript` + `Swift` library for transfering default event driven messaging between
+native swift app and web view to the Request & Response.
+
+API of the library is inspired by express.js & HTTP protocol.
+
+Library support runtime + compile time validation by generated schema communication description.
 
 
-## Example data communication
+## Example communication log
 
 ```
 ← JS  → iOS 2022-08-16 15:01:21 | REQUEST//ios/JS_STD_OUTPUT | id-l6w71eyi-um07oye3l3} | ["directionFlow":REQUEST,"body":{message="logmessagefromJStointheswiftconsole";type=error;},"id":id-l6w71eyi-um07oye3l3},"uri":ios/JS_STD_OUTPUT]
@@ -19,7 +24,7 @@ Integration of the swift app with the web view by the custom reqResMessaging pro
 
 ```
 
-## Example data communication without data
+## Example communication without data
 
 ```
 
@@ -32,4 +37,43 @@ Integration of the swift app with the web view by the custom reqResMessaging pro
 ← JS  → iOS 2022-08-16 15:01:37 | RESPONSE                   | id-549738133-26915442  
 → iOS →  JS 2022-08-16 15:01:37 | RESPONSE                   | id-l6w71gc2-qliz3kj265i
 
+```
+
+
+## Javascript request to swift example
+
+```typescript
+let resData = await swiftNativeUISDK.asyncUi({ h1: 'JS header' })
+```
+
+## Javascript handling swift call
+
+```typescript
+swiftNativeUISDK.__rrMessaging.onMessage("js/REVERSE_TEXT", (body) => ({
+	reversedText: body.inputText.split('').reverse().join('')
+}))
+
+```
+
+## Swift request to webView example
+```swift
+let reversedGenderResponse = try await self.webViewMessaging.fetchMessage(
+	ReqBodyOf: Test1ReqBody.self,
+	ResOf: Test1ResData.self,
+	"js/REVERSE_TEXT",
+	Test1ReqBody(inputText: genderInput )
+)
+```
+
+
+
+## Swift handling webView call
+
+```swift
+self.webViewMessaging.onMessage(ReqOf: JsLogReqBody.self, ResOf: JsLogResData.self, "ios/JS_STD_OUTPUT") { body in
+	if (AppConfig.Logging.printJSConsoleLog) {
+		print("📲",  "JS_STDOUT", getCurrentFormattedTime(), "|", body.type.getIcon(), body.message)
+	}
+	return JsLogResData()
+}
 ```
