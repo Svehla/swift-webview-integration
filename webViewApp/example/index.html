@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Playground</title>
+    <style>
+      body {
+        padding: 0.5rem;
+        margin: 0;
+        background: #EEE !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div >
+      <h1>Test</h1>
+
+      <script src="./index.ts"></script>
+
+      <button onclick="logIos()">Log ios</button>
+      <button onclick="asyncUI()">wizard with reverted request</button>
+
+      <hr />
+      <pre>
+        <div id="response-data"></div>
+      </pre>
+      <div
+        id="response-error" 
+        style="
+        	font-weight: 600;
+          background: #A00;
+          color: white;
+          font-family: monospace;
+          word-break: break-all;
+        "
+      ></div>
+    </div>
+  </body>
+</html>
+

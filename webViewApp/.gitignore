@@ -1,0 +1,8 @@
+*.log
+.DS_Store
+node_modules
+.cache
+dist
+src/__generated_ios_api_schema__.ts
+
+example/.parcel-cache

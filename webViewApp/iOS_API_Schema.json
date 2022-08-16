@@ -1,0 +1,70 @@
+{
+  "ios\/ASYNC_UI" : {
+    "request" : {
+      "attributes" : {
+        "h1" : {
+          "required" : true,
+          "type" : "string"
+        }
+      },
+      "required" : true,
+      "type" : "object"
+    },
+    "response" : {
+      "attributes" : {
+        "age" : {
+          "attributes" : {
+            "value" : {
+              "required" : true,
+              "type" : "int"
+            }
+          },
+          "required" : true,
+          "type" : "object"
+        },
+        "gender" : {
+          "required" : false,
+          "type" : "string"
+        },
+        "hasGender" : {
+          "required" : false,
+          "type" : "boolean"
+        },
+        "username" : {
+          "required" : true,
+          "type" : "string"
+        }
+      },
+      "required" : true,
+      "type" : "object"
+    }
+  },
+  "ios\/JS_STD_OUTPUT" : {
+    "request" : {
+      "attributes" : {
+        "message" : {
+          "required" : true,
+          "type" : "string"
+        },
+        "type" : {
+          "enum" : [
+            "error",
+            "info",
+            "log"
+          ],
+          "required" : true,
+          "type" : "string"
+        }
+      },
+      "required" : true,
+      "type" : "object"
+    },
+    "response" : {
+      "attributes" : {
+
+      },
+      "required" : true,
+      "type" : "object"
+    }
+  }
+}

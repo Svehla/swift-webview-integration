@@ -1,0 +1,28 @@
+.DS_Store
+Pods
+
+node_modules
+
+*.log
+.DS_Store
+webViewApp/node_modules
+webViewApp/.cache
+webViewApp/dist
+webViewApp/src/__generated_ios_api_schema__.ts
+
+webViewApp/example/.parcel-cache
+webViewApp/example/.cache
+webViewApp/example/dist
+webViewApp/example/dist
+
+# https://stackoverflow.com/a/53515016/8995887 
+# Xcode Project
+**/*.xcodeproj/xcuserdata/
+**/*.xcworkspace/xcuserdata/
+**/.swiftpm/xcode/xcuserdata/
+**/*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+**/*.xcworkspace/xcshareddata/*.xccheckout
+**/*.xcworkspace/xcshareddata/*.xcscmblueprint
+**/*.playground/**/timeline.xctimeline
+.idea/
+
