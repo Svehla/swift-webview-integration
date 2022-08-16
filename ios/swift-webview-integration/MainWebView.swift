@@ -20,7 +20,7 @@ struct MainWebView: View {
                     messaging_handleMessage: { message in
                         
                         if AppConfig.Logging.iOSJSCommunication {
-                            logMessage("⬅️ JS  → iOS", message)
+                            logMessage("← JS  → iOS", message)
                         }
                         do {
                             try webViewMessaging.handleMessage(message)
@@ -33,7 +33,7 @@ struct MainWebView: View {
                         self.isWebViewReady = false
                         webViewMessaging.registerEmitMessage({ message in
                             if AppConfig.Logging.iOSJSCommunication {
-                                logMessage("➡️ iOS →  JS", message)
+                                logMessage("→ iOS →  JS", message)
                             }
                             sendMessageToJS(message)
                         })
