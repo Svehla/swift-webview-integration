@@ -44,7 +44,7 @@ swiftNativeUISDK.__rrMessaging.onMessage("js/REVERSE_TEXT", (body) => {
 window.logIos = async () => {
   try {
     ui.loading()
-    const resData = await swiftNativeUISDK._iOSLog({ type: 'error', message: "xxx" })
+    const resData = await swiftNativeUISDK._iOSLog({ type: 'error', message: "log message from JS to in the swift console" })
     await swiftNativeUISDK._iOSLog({ type: 'log', message: "logging" })
     ui.data(resData)
   } catch(err) {
