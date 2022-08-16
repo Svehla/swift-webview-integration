@@ -9,8 +9,9 @@ API of the library is inspired by express.js & HTTP protocol.
 
 Library support runtime + compile time validation by generated schema communication description.
 
+## Communication logs examples
 
-## Example communication log
+#2## Example communication log
 
 ```
 ← JS  → iOS 2022-08-16 15:01:21 | REQUEST//ios/JS_STD_OUTPUT | id-l6w71eyi-um07oye3l3} | ["directionFlow":REQUEST,"body":{message="logmessagefromJStointheswiftconsole";type=error;},"id":id-l6w71eyi-um07oye3l3},"uri":ios/JS_STD_OUTPUT]
@@ -24,7 +25,7 @@ Library support runtime + compile time validation by generated schema communicat
 
 ```
 
-## Example communication without data
+### Example communication without data
 
 ```
 
@@ -40,13 +41,15 @@ Library support runtime + compile time validation by generated schema communicat
 ```
 
 
-## Javascript request to swift example
+## Code usage example
+
+### Javascript request to the swift app
 
 ```typescript
 let resData = await swiftNativeUISDK.asyncUi({ h1: 'JS header' })
 ```
 
-## Javascript handling swift call
+### Javascript register message handler from the swift App
 
 ```typescript
 swiftNativeUISDK.__rrMessaging.onMessage("js/REVERSE_TEXT", (body) => ({
@@ -55,7 +58,8 @@ swiftNativeUISDK.__rrMessaging.onMessage("js/REVERSE_TEXT", (body) => ({
 
 ```
 
-## Swift request to webView example
+### Swift request to the webView
+
 ```swift
 let reversedGenderResponse = try await self.webViewMessaging.fetchMessage(
   ReqBodyOf: Test1ReqBody.self,
@@ -67,7 +71,8 @@ let reversedGenderResponse = try await self.webViewMessaging.fetchMessage(
 
 
 
-## Swift handling webView call
+
+### Swift register message handler from the webView
 
 ```swift
 self.webViewMessaging.onMessage(ReqOf: JsLogReqBody.self, ResOf: JsLogResData.self, "ios/JS_STD_OUTPUT") { body in
