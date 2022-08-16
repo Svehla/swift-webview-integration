@@ -5,16 +5,16 @@ Implementation of the custom protocol for the `Request` & `Response` (`ReqResMes
 
 API of the `ReqResMessaging` is heavily inspired by `express.js` & `HTTP` & `swagger`.
 
-`ReqResMessaging` is build on top of the native one way directional messages.
+`ReqResMessaging` is build on top of the native one way directional message emiting.
 
-Library supports:
+`ReqResMessaging` supports:
 - Awaitable `Request` & `Response` communication
 - Abstraction over one-way directional postMessages
 - Runtime message validations
 - Compile-time message validations
 - Generating API schema similar to the `open API spec`
-- Potential for the easy integration of the `Web <-> Iframe` communication
-- Protocol has currently two implementation in the
+- Integration for the `Web <-> Iframe` communication
+- Protocol has currently implementations in the 2 languages:
   - Swift
   - TypeScript
 - Generic error handling
