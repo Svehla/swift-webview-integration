@@ -35,29 +35,15 @@ API of the `ReqResMessaging` is heavily inspired by `express.js` & `HTTP` & `swa
 
 ```
 
-### Example communication without data
+## Examples
 
-```
-
-← JS  → iOS 2022-08-16 15:01:21 | REQUEST//ios/JS_STD_OUTPUT | id-l6w71eyi-um07oye3l3}
-→ iOS →  JS 2022-08-16 15:01:21 | RESPONSE                   | id-l6w71eyi-um07oye3l3}
-← JS  → iOS 2022-08-16 15:01:21 | REQUEST//ios/JS_STD_OUTPUT | id-l6w71ezw-k85j02olgkc
-→ iOS →  JS 2022-08-16 15:01:21 | RESPONSE                   | id-l6w71ezw-k85j02olgkc
-← JS  → iOS 2022-08-16 15:01:22 | REQUEST//ios/ASYNC_UI      | id-l6w71gc2-qliz3kj265i
-→ iOS →  JS 2022-08-16 15:01:37 | REQUEST//js/REVERSE_TEXT   | id-549738133-26915442  
-← JS  → iOS 2022-08-16 15:01:37 | RESPONSE                   | id-549738133-26915442  
-→ iOS →  JS 2022-08-16 15:01:37 | RESPONSE                   | id-l6w71gc2-qliz3kj265i
-
-```
-
-
-## Code usage example
 
 ### Javascript request to the swift app
 
 ```typescript
-let resData = await swiftNativeUISDK.asyncUi({ h1: 'JS header' })
+let response = await swiftNativeUISDK.fetchMessage('ios/JS_STD_OUTPUT')
 ```
+
 
 ### Javascript register message handler from the swift App
 
@@ -68,18 +54,17 @@ swiftNativeUISDK.__rrMessaging.onMessage("js/REVERSE_TEXT", (body) => ({
 
 ```
 
+
 ### Swift request to the webView
 
 ```swift
 let reversedGenderResponse = try await self.webViewMessaging.fetchMessage(
-  ReqBodyOf: Test1ReqBody.self,
-  ResOf: Test1ResData.self,
+  ReqBodyOf: ReverseTextReqBody.self,
+  ResOf: ReverseResData.self,
   "js/REVERSE_TEXT",
   Test1ReqBody(inputText: genderInput )
 )
 ```
-
-
 
 
 ### Swift register message handler from the webView
