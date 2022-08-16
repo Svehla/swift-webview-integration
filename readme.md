@@ -1,25 +1,27 @@
 
 # Swift <-> webView Request Response protocol
   
-This repo implements `TypeScript` + `Swift` integration of the Request&Response communication between native app and web-view
-native swift app and web view to the Request & Response.
+Implementation of the custom protocol for the `Request` & `Response` (`ReqResMessaging`) messaging between `iOS` and `web-view`.
 
-Library supports
-- Awaitable Request response communication
-- abstraction over one-way directional postMessages
-- runtime message validations
-- compile-time message validations
-- generating communication schema from the code implementation (similar to swagger)
-- protocol has currently two implementation in the
+API of the `ReqResMessaging` is heavily inspired by `express.js` & `HTTP` & `swagger`.
+
+`ReqResMessaging` is build on top of the native one way directional messages.
+
+Library supports:
+- Awaitable `Request` & `Response` communication
+- Abstraction over one-way directional postMessages
+- Runtime message validations
+- Compile-time message validations
+- Generating API schema similar to the `open API spec`
+- Potential for the easy integration of the `Web <-> Iframe` communication
+- Protocol has currently two implementation in the
   - Swift
   - TypeScript
-- easy implementation for the `web <-> Iframe` communication
-
-API of the `ReqResMessaging` is inspired by `express.js` & `HTTP` & `swagger`.
+- Generic error handling
 
 ## Communication logs examples
 
-#2## Example communication log
+### Example communication log
 
 ```
 ← JS  → iOS 2022-08-16 15:01:21 | REQUEST//ios/JS_STD_OUTPUT | id-l6w71eyi-um07oye3l3} | ["directionFlow":REQUEST,"body":{message="logmessagefromJStointheswiftconsole";type=error;},"id":id-l6w71eyi-um07oye3l3},"uri":ios/JS_STD_OUTPUT]
