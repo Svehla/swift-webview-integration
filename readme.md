@@ -38,12 +38,25 @@ API of the `ReqResMessaging` is heavily inspired by `express.js` & `HTTP` & `swa
 ## Examples
 
 
+
+### Swift register message handler from the webView
+
+```swift
+self.webViewMessaging.onMessage(ReqOf: JsLogReqBody.self, ResOf: JsLogResData.self, "ios/JS_STD_OUTPUT") { body in
+  if (AppConfig.Logging.printJSConsoleLog) {
+    print("📲",  "JS_STDOUT", getCurrentFormattedTime(), "|", body.type.getIcon(), body.message)
+  }
+  return JsLogResData()
+}
+```
+
 ### Javascript request to the swift app
 
 ```typescript
 let response = await swiftNativeUISDK.fetchMessage('ios/JS_STD_OUTPUT')
 ```
 
+---------------------
 
 ### Javascript register message handler from the swift App
 
@@ -53,7 +66,6 @@ swiftNativeUISDK.__rrMessaging.onMessage("js/REVERSE_TEXT", (body) => ({
 }))
 
 ```
-
 
 ### Swift request to the webView
 
@@ -66,14 +78,3 @@ let reversedGenderResponse = try await self.webViewMessaging.fetchMessage(
 )
 ```
 
-
-### Swift register message handler from the webView
-
-```swift
-self.webViewMessaging.onMessage(ReqOf: JsLogReqBody.self, ResOf: JsLogResData.self, "ios/JS_STD_OUTPUT") { body in
-  if (AppConfig.Logging.printJSConsoleLog) {
-    print("📲",  "JS_STDOUT", getCurrentFormattedTime(), "|", body.type.getIcon(), body.message)
-  }
-  return JsLogResData()
-}
-```
